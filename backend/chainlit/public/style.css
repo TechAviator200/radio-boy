@@ -1,0 +1,37 @@
+/* Dark background like a music player */
+body {
+  background-color: #050505 !important;
+}
+
+/* Make assistant messages look like Apple Music cards */
+.cl-message {
+  border-radius: 24px !important;
+  background: #1c1c1e !important; /* Apple dark gray */
+  border: 1px solid #3a3a3c !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+  max-width: 420px;
+  margin: 32px auto !important;
+  padding: 0 !important;
+}
+
+/* Inner markdown text area of the message */
+.cl-message .prose {
+  padding: 18px !important;
+  color: #f5f5f7 !important;
+}
+
+/* Headings inside the card */
+.cl-message .prose h3,
+.cl-message .prose h2 {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Video element = card header */
+.cl-message video {
+  border-radius: 24px 24px 0 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

@@ -1,0 +1,181 @@
+/* Apple Music-style Radio Boy Theme */
+
+:root {
+  /* Apple Music colors */
+  --apple-bg: #1c1c1e;
+  --apple-bg-secondary: #2c2c2e;
+  --apple-bg-tertiary: #3a3a3c;
+  --apple-text: #ffffff;
+  --apple-text-secondary: #d1d1d6;
+  --apple-accent: #ff2d55;
+  --apple-accent-hover: #ff375f;
+  --apple-border: #3a3a3c;
+  --apple-radius: 16px;
+  --apple-radius-sm: 12px;
+  --apple-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Main background */
+body,
+.cl-main,
+main {
+  background: var(--apple-bg) !important;
+  font-family: var(--apple-font) !important;
+}
+
+/* Chat container */
+.cl-chat-container,
+.cl-messages-container {
+  background: var(--apple-bg) !important;
+}
+
+/* Message bubbles */
+.cl-message {
+  background: var(--apple-bg-secondary) !important;
+  border: 1px solid var(--apple-border) !important;
+  border-radius: var(--apple-radius) !important;
+  margin: 12px 0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.cl-message-content {
+  color: var(--apple-text) !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+/* User messages */
+.cl-message[data-author="user"] {
+  background: var(--apple-accent) !important;
+  border-color: var(--apple-accent) !important;
+}
+
+.cl-message[data-author="user"] .cl-message-content {
+  color: white !important;
+}
+
+/* Assistant messages */
+.cl-message[data-author="Radio Boy"],
+.cl-message[data-author="assistant"] {
+  background: var(--apple-bg-secondary) !important;
+}
+
+/* Message author name */
+.cl-message-author {
+  color: var(--apple-accent) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+/* Input area */
+.cl-input-container,
+.cl-chat-input-container {
+  background: var(--apple-bg-secondary) !important;
+  border: 1px solid var(--apple-border) !important;
+  border-radius: var(--apple-radius) !important;
+}
+
+.cl-input,
+.cl-chat-input,
+textarea {
+  background: var(--apple-bg-tertiary) !important;
+  color: var(--apple-text) !important;
+  border: none !important;
+  border-radius: var(--apple-radius-sm) !important;
+  font-family: var(--apple-font) !important;
+  font-size: 15px !important;
+}
+
+.cl-input::placeholder,
+textarea::placeholder {
+  color: var(--apple-text-secondary) !important;
+}
+
+/* Send button */
+.cl-send-button,
+button[type="submit"] {
+  background: var(--apple-accent) !important;
+  border-radius: 50% !important;
+  border: none !important;
+}
+
+.cl-send-button:hover,
+button[type="submit"]:hover {
+  background: var(--apple-accent-hover) !important;
+}
+
+/* Sidebar */
+.cl-sidebar,
+aside {
+  background: var(--apple-bg) !important;
+  border-right: 1px solid var(--apple-border) !important;
+}
+
+/* Header */
+.cl-header,
+header {
+  background: var(--apple-bg-secondary) !important;
+  border-bottom: 1px solid var(--apple-border) !important;
+}
+
+/* Video element styling */
+video {
+  border-radius: var(--apple-radius) !important;
+  max-width: 100% !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Links */
+a {
+  color: var(--apple-accent) !important;
+}
+
+a:hover {
+  color: var(--apple-accent-hover) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--apple-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--apple-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--apple-text-secondary);
+}
+
+/* Code blocks */
+pre, code {
+  background: var(--apple-bg-tertiary) !important;
+  border-radius: var(--apple-radius-sm) !important;
+  color: var(--apple-text) !important;
+}
+
+/* Buttons */
+button {
+  font-family: var(--apple-font) !important;
+}
+
+/* Elements container */
+.cl-elements {
+  background: transparent !important;
+}
+
+/* Bold text accent */
+strong, b {
+  color: var(--apple-accent) !important;
+}
+
+/* Italic text */
+em, i {
+  color: var(--apple-text-secondary) !important;
+}
