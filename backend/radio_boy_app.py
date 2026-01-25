@@ -37,9 +37,9 @@ client = OpenAI()
 collected_emails = []
 
 # Serve static files (video, etc.) - only mount if directory exists
-STATIC_DIR = Path(__file__).parent / "public"
+STATIC_DIR = Path(__file__).resolve().parent / "public"
 if STATIC_DIR.exists():
-    app.mount("/public", StaticFiles(directory=str(STATIC_DIR)), name="public")
+    app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="public")
 
 # System prompt for Radio Boy
 SYSTEM_PROMPT = """You are Radio Boy, a cool and knowledgeable music curator, songwriting assistant, and creative workflow manager with the vibe of a late-night radio DJ meets studio producer.
@@ -828,14 +828,14 @@ HTML_TEMPLATE = """
             </div>
         </div>
         <div class="gateway-right">
-            <video src="/public/animation.mp4" autoplay loop muted playsinline></video>
+            <video src="/static/animation.mp4" autoplay loop muted playsinline></video>
         </div>
     </div>
 
     <!-- Main App Card -->
     <div class="card">
         <div class="video-container">
-            <video src="/public/animation.mp4" autoplay loop muted playsinline></video>
+            <video src="/static/animation.mp4" autoplay loop muted playsinline></video>
             <div class="now-playing" id="nowPlaying">
                 <div class="now-playing-content">
                     <img class="now-playing-cover" id="npCover" src="" alt="">
