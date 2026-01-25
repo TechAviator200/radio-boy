@@ -1,8 +1,10 @@
+# Radio Boy v0 – Stable demo build for Render deployment
 """
 Radio Boy - Apple Music-style chat interface
 Uses OpenAI for music recommendations and Deezer for 30-second previews
 """
 import os
+from pathlib import Path
 import httpx
 from typing import Optional
 from fastapi import FastAPI, Request
@@ -34,8 +36,10 @@ client = OpenAI()
 # Store collected emails (in production, use a database)
 collected_emails = []
 
-# Serve static files (video, etc.)
-app.mount("/public", StaticFiles(directory="public"), name="public")
+# Serve static files (video, etc.) - only mount if directory exists
+STATIC_DIR = Path(__file__).parent / "public"
+if STATIC_DIR.exists():
+    app.mount("/public", StaticFiles(directory=str(STATIC_DIR)), name="public")
 
 # System prompt for Radio Boy
 SYSTEM_PROMPT = """You are Radio Boy, a cool and knowledgeable music curator, songwriting assistant, and creative workflow manager with the vibe of a late-night radio DJ meets studio producer.
@@ -1214,4 +1218,5 @@ async def chat(request: Request):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    port = int(os.getenv("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
