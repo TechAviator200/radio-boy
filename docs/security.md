@@ -49,9 +49,23 @@ to that scope while demonstrating security-aware engineering practices.
 | Secret scanning | [gitleaks](https://github.com/gitleaks/gitleaks) | `security.yml` |
 | Python dependency audit | [pip-audit](https://github.com/pypa/pip-audit) | `security.yml` |
 | Python SAST | [bandit](https://github.com/PyCQA/bandit) | `security.yml` |
-| JS/TS dependency audit | `npm audit` | `security.yml` (when frontend is tracked) |
+| JS/TS dependency audit | `npm audit` | `security.yml` |
 | Deep code analysis | [CodeQL](https://codeql.github.com/) | `codeql.yml` |
 | Dependency updates | [Dependabot](https://docs.github.com/en/code-security/dependabot) | `dependabot.yml` |
+
+### Suppressed Findings
+
+**Bandit B104 — `host="0.0.0.0"` (`radio_boy_app.py:1222`)**
+Bandit flags binding to all interfaces as CWE-605. This is the standard and
+required pattern for container deployments (Render, Docker, Heroku) where the
+application runs behind a reverse proxy. The binding is inside the
+`if __name__ == "__main__"` guard and has no effect when the app is launched via
+a WSGI/ASGI server in production. Suppressed in CI with `-s B104`.
+
+**npm audit — moderate devDependency advisories (ajv/eslint chain)**
+These affect the eslint toolchain only, not the production bundle. Tracked via
+Dependabot; no runtime risk. `npm audit` in CI runs with `--omit=dev` to avoid
+false failures from dev-only transitive vulnerabilities.
 
 ---
 
