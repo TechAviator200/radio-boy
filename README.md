@@ -64,7 +64,7 @@ npm run dev
 
 ## Security Posture & Boundaries
 
-**Current scope:** portfolio / demo — single-user, not a production SaaS.
+**Current scope:** portfolio, not a production SaaS.
 
 All secrets (API keys, tokens) are handled via environment variables and never
 committed to the repository. `.env` files are gitignored. Deployment platforms
