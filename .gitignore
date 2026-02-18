@@ -1,30 +1,53 @@
-# Virtual environments
-.venv/
-venv/
-env/
+# ── Environment variables & secrets ──────────────────────────────
+.env
+.env.*
+**/.env.*
+backend/.env*
+frontend/.env*
+credentials/
+*token*.json
+gmail_token.json
 
-# Python cache
+# ── Python ───────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *.pyo
+.venv/
+venv/
+env/
+*.egg-info/
 
-# Environment variables
-.env
-.env.local
+# ── Node / Next.js ──────────────────────────────────────────────
+node_modules/
+.next/
+dist/
+build/
+*.tsbuildinfo
 
-# OS files
+# ── Chainlit ─────────────────────────────────────────────────────
+.chainlit/
+.files/
+
+# ── Audio / media exports ────────────────────────────────────────
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.m4a
+
+# ── Databases & caches ──────────────────────────────────────────
+*.sqlite
+*.sqlite3
+*.db
+*.cache
+
+# ── Logs ─────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── OS / editor ─────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
-
-# IDE
 .idea/
 .vscode/
 *.swp
-
-# Node
-node_modules/
-.next/
-
-# Chainlit
-.chainlit/
-.files/
